@@ -1,17 +1,10 @@
-import random
+number = int(input('введите чило в десятичной системе счисления:'))
+result = ''
 
-n = 20
-seq = [random.randint(1,100) for i in range(n)]
-print('последовательность', seq)
+d = '0123456789ABCDEF'
+while number != 0:
+    remainder = number % 16
+    result = d[remainder]+ result
+    number //= 16
 
-max_num = []
-for number in sorted (seq, reverse = True):
-    if len(max_num) == 3:
-        break
-    if number % 7 == 0:
-        max_num.append(number)
-
-if len(max_num) < 3:
-    print('в последовательности меньше 3 чисел')
-else:
-    print(max_num)
+print(result)
